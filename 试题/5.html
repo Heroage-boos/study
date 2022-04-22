@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num=12345678.145
+     
+    function zh(num){
+       var result="";
+           var textNum=num.toString()
+        num=Number(num.toString()||0).toFixed(2);
+        var numArry=num.toString().split(".");
+        var preNum=numArry[0];//截取除后两位小数点的数字
+        var lastNum=numArry[1];//截取除后两位小数点
+        var contentArry=[]
+        console.log(preNum,lastNum);
+         while(preNum.length>3){
+            result='.'+preNum.slice(-3)+result;
+                console.log(preNum.length%3);//2
+                 for(var i=0;i<preNum.length%3;i++){
+                    result='.'+preNum.slice(-(i*3),preNum.length-3)+result;
+                 }
+                 console.log(result);
+             
+            }
+            console.log(result);
+            preNum=preNum.slice(0,preNum.length-3)
+            if(preNum){
+                result=preNum+result;
+            }
+            result=result+"."+lastNum;
+            return  result;
+         }
+     
+    }
+    console.log( zh(num));
+     
+
+    </script>
+    
+</body>
+</html>

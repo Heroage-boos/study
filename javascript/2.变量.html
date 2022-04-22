@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      /*   数据类型: 
+          1)对象(引入)类型 
+            object,function,array
+              -对象类型的值，保存的是一个地址值
+              -对象类型的值可以扩展属性和方法
+              -对象类型值保存的是一个引用值，当一个对象赋给连一个对象，其他它们都指向同一个地址值
+              是浅拷贝，然后修改这个对象它们的值也会发生改变
+          2)原始值,基本数据类型
+            undefined,null,string,number,boolean,bigInt,symbol
+              -基本类型的值，值是不可变的
+              -一旦创建就不能修改只能替换
+              -基本类型的值不可以扩展属性和方法 */
+
+      //同时声明多个变量
+      var 中国 = 888;
+      var a = (b = c = d = 100);
+      console.log(a, b, c, d);
+      console.log(中国);
+    </script>
+  </body>
+</html>

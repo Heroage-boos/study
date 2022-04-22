@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>盒子模型</title>
+  </head>
+  <body>
+      <dl>
+          <dt>盒子模型的概念:</dt>
+          <dd>
+              盒子模型分为:标准盒子模型(w3c盒子模型)，怪异盒子模型(ie盒子模型)
+              在html中，把每一个元素都当成一个盒子
+              盒子模型的组成:
+              1）标准盒子模型:内容区，边框，内边距，和外边距构成，
+              2）怪异盒子模型:内容区=边框+content+padding,  然后加上margin组成
+          </dd>
+          <dt>margin的父级塌陷:</dt>
+          <dd>
+              
+                父级中的第一个margin-top会坍塌给父级
+                最后一个元素margin-button会坍塌给父级
+                解决:1)开启块级格式化上下文
+                     2）给父元素设置一条间隔(margin,border,padding)
+              </dd>
+      </dl>
+  </body>
+</html>

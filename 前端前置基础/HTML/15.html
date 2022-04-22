@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筛子</title>
+    <style>
+        div.a{
+            width:600px;
+            height:350px;
+            display: flex;
+            justify-content:space-evenly;
+            flex-wrap:wrap;
+           /*  flex-direction: column; */
+            border:solid 1px red;
+            margin:150px auto;
+          
+        }
+        div.a .s1,.s2,.s3,.s4,.s5,.s6{
+            width:150px;
+            height:150px;
+            margin-top:12px;
+           border-radius:5px;
+            border:solid 1px rosybrown;
+            
+
+        }
+        div.a div.base{
+            width:40px;
+            height:40px;
+            background-color:#000;
+            border-radius:50%;
+        }
+        div.a .s1{
+            display: flex;
+            justify-content: center;
+          /*   flex-direction:column; */
+            align-items: center;
+        }
+        div.a .s2{
+            display:flex;
+            flex-direction:column;
+            justify-content:space-evenly;
+            align-items:center ;
+        }
+        div.a .s3{
+            display:flex;
+            flex-direction:column;
+            justify-content:space-evenly;
+        }
+        div.a .s3 div:nth-of-type(2){
+            align-self: center;
+        }
+        div.a .s3 div:nth-of-type(3){
+            align-self: flex-end;
+        }
+        div.a .s4{
+            display: flex;
+            justify-content:space-around;
+        }
+        div.a .s4 .col{
+            display:flex;
+            flex-direction:column;
+           justify-content: space-evenly; 
+        }
+        div.a .s5{
+            display: flex;
+            justify-content: space-evenly;
+           
+        }
+        div.a .s5>div{
+            display:flex;
+            flex-direction:column;
+            justify-content:space-evenly;
+        }
+        div.a .s5 :nth-child(2){
+            align-self: center;
+        }
+        div.a .s6{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        div.a .s6>div{
+            display: flex;
+           flex-direction:column;
+           justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="s1">
+            <div class="base"></div>
+        </div>
+        <div class="s2">
+            <div class="base"></div>
+            <div class="base"></div>
+        </div>
+        <div class="s3">
+            <div class="base"></div>
+            <div class="base"></div>
+            <div class="base"></div>
+        </div>
+        <div class="s4">
+            <div class="col">
+                <div class="base"></div>
+                <div class="base"></div>
+            </div>
+            <div class="col">
+                <div class="base"></div>
+                <div class="base"></div>
+            </div>
+        </div>
+        <div class="s5">
+            <div class="col">
+                <div class="base"></div>
+                <div class="base"></div>
+            </div>
+            <div class="base"></div>
+            <div class=col>
+                <div class="base"></div>
+                <div class="base"></div>
+            </div>
+        </div>
+        <div class="s6">
+            <div>
+                <div class="base"></div>
+                <div class="base"></div>
+                <div class="base"></div>
+            </div>
+            <div>
+                <div class="base"></div>
+                <div class="base"></div>
+                <div class="base"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

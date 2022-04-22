@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      /*  react中定义组件的两种方式 */
+      //1.工厂函数组件
+      function MyContainer() {
+        return <h2>工厂函数组件</h2>;
+      }
+
+      //方式二: es6类组件(复杂组件)
+      class MyContainer2 extends React.Component {
+        render() {
+          console.log(this);
+          const a = "ES6";
+          return (
+            <div>
+              <MyContainer />
+              <h2>es6类组件(复杂组件 ){a}</h2>
+            </div>
+          );
+        }
+      }
+      //将组件渲染到真实dom中去
+      ReactDOM.render(<MyContainer2 />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

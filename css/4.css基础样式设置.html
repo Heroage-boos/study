@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <dl>
+      <dt><h2>css基础样式设置</h2></dt>
+      <dd>
+        <p>
+          文本颜色的设置:color
+          关于a标签颜色的继承:如果设置href，a标签会默认继承父类的颜色，如何设置了href，a标签则会使用自带的颜色
+        </p>
+      </dd>
+      <dd>
+        <p>设置字体:font-family:''，设置多个使用逗号分隔</p>
+      </dd>
+      <dd>
+        <p>字体风格:font-style:设置字体是否斜体</p>
+      </dd>
+      <dd>
+        <p>字体粗细:font-weight</p>
+      </dd>
+      <dd>
+        <p>line-height:行高，决定了行级元素的高度</p>
+      </dd>
+      <dd>
+        <p>
+          让图片在父级垂直居中: 设置父元素:line-height=height 设置子元素
+          vartical-align=middle
+        </p>
+      </dd>
+      <dd>
+        <p>
+          去除图片默认间隙:原因是:html版本中会出现一个幽灵节点，因为图片底部默认和行框的文字基线对齐，所以图片和行框底部有一定的间隙
+          解决:1)font-size:0px 2）父元素设置:ovflow:hidden 3)设置元素浮动
+          4）定位 5）设置line-height:0 6）dislay:block
+        </p>
+      </dd>
+      <dd>
+        <p>首行文本缩进:text-decration</p>
+      </dd>
+      <dd>
+        <p>text-align:文本对齐方式</p>
+      </dd>
+      <dd>
+        <p>字符和词间距： letter-spacing word-spacing</p>
+      </dd>
+      <dd>
+        <p>
+          背景类设置: background:可以设置背景
+          background-color:设置背景颜色，background-image:背景图片
+          background-repeat:控制背景图片是否平铺
+          background-positon背景图定位，可用于css精灵图，雪碧图
+          原理是利用图像合成技术，将许多小图片和图标合成一张大图，使用background-potion来定位展示图片
+          减少了图片下载时和服务器的交互次数，减少了服务器压力
+        </p>
+      </dd>
+      <dd>
+        <p>
+          overflow属性:
+          元素移除隐藏，还有ovflow不为visble时会形成一个独立的渲染空间
+        </p>
+      </dd>
+      <dd>
+        <p>
+            display:
+            控制元素的显示隐藏，还有转换元素状态，规定了元素的布局方式
+
+         </p>
+      </dd>
+      <dd>
+        <p>
+            display:
+            控制元素的显示隐藏，还有转换元素状态，规定了元素的布局方式
+            
+         </p>
+      </dd>
+      <dd>
+        <p>
+           visibility:
+            不会改变元素的布局,只是触发了重绘，hidden相当于颜色并透明
+         </p>
+      </dd>
+      <dd>
+        <p>
+            opacity:设置不透明度:
+            范围0-1:1为完全不透明，0为完全透明
+           </p>
+      </dd>
+    </dl>
+  </body>
+</html>

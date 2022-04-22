@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <dl>
+      <dt><h2>基础选择器：</h2></dt>
+      <dd>
+        <p>
+          1.什么是选择器? 选择器是用于实现对页面元素进行控制 1.id选择器 id="xxx"
+          #id 权重100 2.class选择器，伪类链接选择器，伪类动态选择器 class="xxx"
+          .xxx 权重10 3.标签选择器，通用选择器, 权重0
+          注意:使用!template可以对单个属性值提升权重至最高
+        </p>
+      </dd>
+    </dl>
+    <dl>
+      <dt><h2>*</h2></dt>
+      <dd>
+        <p>通配符，选择所有元素都生效，不建议使用</p>
+      </dd>
+    </dl>
+    <dl>
+        <dt><h2>css复杂选择器</h2></dt>
+        <dd>
+          <p>
+              交集选择器:span.xxx  class为xxx的span标签
+              并集选择器:span,h1 {} 两个标签都生效
+              兄弟选择器: E+F,E~F,
+              父子选择器: E>F,
+              子类选择器：E F
+              属性选择器: e[attr='disable'] 
+          </p>
+        </dd>
+      </dl>
+  </body>
+</html>

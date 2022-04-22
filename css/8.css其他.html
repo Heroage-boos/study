@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <dl>
+      <dt>a标签的四个伪类</dt>
+      <dd>
+        link:当有链接属性的时候 visted:当链接被访问过以后
+        hover:当连接被鼠标悬浮的时候 active:当连接在激活状态的时候
+      </dd>
+    </dl>
+    <dl>
+      <dt>伪元素</dt>
+      <dd>
+        :before:在当前标签的开始标签插入一个伪元素
+        :after:在结束标签的前面插入一个伪元素
+        伪元素必须拥有conteent属性，才能生效
+      </dd>
+    </dl>
+    <dl>
+      <dt>BFC</dt>
+      <dd>
+        什么是BFC:块级格式化上下文,使css形成一块独立的渲染区域，改区域内的元素不受外部元素的影响
+        BFC规则:1)块级上下文内左右间隔使用margin 2）上下边距使用padding
+        3）浮动元素也参与计算高度 4)元素呈垂直方向依次排序
+        怎样形成BFC:1)display不为none 2)overflow不为visble 3）float不为none
+        4)position不为resolve 5） BFC能够做什么:1）解决margin父级塌陷
+        2)div+css布局 3）flex布局 4）形成文字环绕
+      </dd>
+    </dl>
+  </body>
+</html>

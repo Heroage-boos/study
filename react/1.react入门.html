@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- 在html中运行 需要  react react-dom label包,引入顺序不可变-->
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      /**
+       * react 一个javascript库，声明式，组件化编码
+       *  react高效原因:1)diff算法，减少页面重绘，重排次数
+       *               2)不直接操作dom
+       * */
+      //创建虚拟dom元素
+      const rDom = <h3>china</h3>;
+      ReactDOM.render(rDom, document.getElementById("root"));
+    </script>
+  </body>
+</html>

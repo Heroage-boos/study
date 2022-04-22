@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * "smyhvaevaesmyh"查找字符串中所有 m 出现的位置。
+       * */
+      var str = "smyhvaevaesmyh";
+      var index = 0;
+      console.log(str);
+      //循环查找判断   先判断后执行
+      while (index !== -1) {
+        //查找到 继续从当前下标开始查找
+        index = str.indexOf("m", index + 1);
+        //直到没查找到 return 退出 打印 出现位置
+        console.log("m出现的位置" + index);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./2.css"/>
+  </head>
+  <body>
+    <dl>
+        <dt><h2>CSS引入方式?</h2></dt>
+        <dd>
+          <p>
+           css引入方式一共有三种外部引入，内联，行内引入
+            1)外部引入:语法link rel="stylesheet" type="text/css" href="./2.css"/> 方便复用，减冗余
+            2)内部引入:在头部中使用style的标签中书写即可
+            3）行内样式  在标签中使用 style属性即可，权重最高
+              行内引入，外部引入谁最后被调用谁的权重最高
+          </p>
+        </dd>
+      </dl>
+      <dl>
+        <dl>
+            <dt><h2>重绘，重排</h2></dt>
+            <dd>
+              <p>
+                  重绘:当render tree 中更新的属性只会影响元素的外观，不会影响到元素的布局时候被称为重绘
+                  重排:反之称为重排，render tree 样式影响到元素布局的时候称为重排
+                  重绘不会引起重排，单重排一定会引起重绘，操作dom会触发重排重绘影响性能
+             </p>
+            </dd>
+          </dl>
+          <dl>
+  </body>
+</html>

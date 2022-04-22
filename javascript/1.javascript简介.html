@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--行内式引入-->
+    <input type="button" value="行内式引入" onclick="alert('千古壹号')" />
+
+    <button value="点我点我" id="btn">内嵌式引入</button>
+
+    <button value="点我点我" id="btn2">外部引入</button>
+
+    <!-- 外部引入 -->
+    <script src="./js/1.js"></script>
+
+    <!--内嵌式引入-->
+    <script>
+      /* 1995年由网景公司发明，负责网页中的行为部分，是一个弱类型,动态，基于原型的,直译式脚本语言
+           解释语言(一行一行编译) ，可以用来动态的渲染页面
+
+                -------------------------
+                javascript的组成:W3c制定的DOM,ECMA组织制定的ECMAScript规范，BOM 浏览器对象模型,
+                ECMAScript不是一门语言，是一个标准，
+                ------------------------------
+                javascript的引入方式:三种,内嵌式，行内式，外部引入
+         */
+      //原生dom 事件 elt.on+"事件名小写"=回调函数
+      btn.onclick = () => {
+        //弹出输入框 可以收集信息
+        const text = prompt("点我点我");
+        console.log(text);
+      };
+    </script>
+  </body>
+</html>

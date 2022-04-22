@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>组合继承,ES6继承</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      /**
+       * 组合继承
+       * */
+      //定义一个父类
+      function Persion(name, age, price) {
+        this.name = name;
+        this.age = age;
+        this.price = price;
+      }
+      Persion.prototype.say = function () {
+        console.log(`${this.name}:${this.age}:${this.price}`);
+      };
+      //定义一个子类
+      function Student(name, age, price) {
+        Persion.call(this, name, age, price);
+      }
+
+      var p1 = new Persion("小明", 18);
+      var p2 = new Persion("小宏", 18, 10000);
+      p1.say();
+      p2.say();
+
+      /**
+       * 类继承
+       * */
+      class Persiom2 {
+        constructor(name, age, price) {
+          this.name = name;
+          this.age = age;
+          this.price = price;
+        }
+        sayHello() {
+          console.log(`${this.name}:${this.age}:${this.price}`);
+        }
+      }
+      class Student2 extends Persiom2 {
+        constructor(name, age, price) {
+          super(name, age, price);
+        }
+      }
+
+      var p3 = new Student2("XIAO", 18);
+      var p4 = new Student2("LKH", 18, 10000);
+      p3.sayHello();
+      p4.sayHello();
+    </script>
+  </body>
+</html>

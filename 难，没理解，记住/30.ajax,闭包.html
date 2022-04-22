@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //ajax 概念:异步的xml和javascript,是一种与服务器端进行交互的通信手段
+
+      //1.获取xhr对象
+      const xhr = new XMLHttpRequest();
+      //2.设置请求方式和请求类型
+      xhr.open("get", true);
+      //3.发送请求头
+      xhr.setRequestHeader();
+      //4.设置请求主体
+      xhr.send({
+        xxx: xxx,
+      });
+      //5.获取响应数据
+      xhr.onreadystatechange = function () {
+        //只有请求成功并响应成功才能获取到数据
+        if (xhr.readyState === 4 && xhr.status === 400) {
+          console.log(xhr.responseText);
+        }
+      };
+      /* 
+      闭包
+        -概念:有权访问另一个函数作用域中的变量
+        -闭包形成的原因: 内部函数存在被上级函数调用
+        -闭包应用：1)在闭包中的变量，执行文函数之后不会被立即销毁延长了变量的声明周期，保护了对象的属性和方法
+        -闭包的缺点:大量的使用闭包容易造成内存泄露
+        -数据销毁: 对象类型主动赋值为null，就会被回收
+                  对于基本数据类型，当函数执行完成后就会被立即销毁 */
+    </script>
+  </body>
+</html>

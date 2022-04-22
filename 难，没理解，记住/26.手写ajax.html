@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax</title>
+  </head>
+  <body>
+    <script>
+      //概念:异步的javascript和xhr，用来和服务器交互的通信方式
+      //1.创建xhr对象
+      const xhr = new XMLHttpRequest();
+      //2.设置请求方式和请求类型
+      xhr.open("get", true);
+      //3.设置请求头
+      xhr.setRequestHeader();
+      //4.设置请求主体  携带请求参数
+      xhr.send();
+      //5.接收响应数据
+      xhr.onreadystatechange = function () {
+        //接收响应参数和数据
+        if (xhr.readyState === 4 && xhr.status === 400) {
+          console.log(xhr.responseText);
+        }
+      };
+    </script>
+  </body>
+</html>

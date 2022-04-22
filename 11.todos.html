@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /*base*/
+body {
+  background: #fff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #da4f49;
+  border: 1px solid #bd362f;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #bd362f;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+/*app*/
+.todo-container {
+  width: 600px;
+  margin: 0 auto;
+}
+.todo-container .todo-wrap {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/*header*/
+.todo-header input {
+  width: 560px;
+  height: 28px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 7px;
+}
+
+.todo-header input:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/*main*/
+.todo-main {
+  margin-left: 0px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 0px;
+}
+
+.todo-empty {
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding-left: 5px;
+  margin-top: 10px;
+}
+/*item*/
+li {
+  list-style: none;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+li label {
+  float: left;
+  cursor: pointer;
+}
+
+li label li input {
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -1px;
+}
+
+li label span.done {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+li button {
+  float: right;
+  display: none;
+  margin-top: 3px;
+}
+
+li:before {
+  content: initial;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/*footer*/
+.todo-footer {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 6px;
+  margin-top: 5px;
+}
+
+.todo-footer label {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.todo-footer label input {
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.todo-footer button {
+  float: right;
+  margin-top: 5px;
+}
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="todo-container">
+          <div class="todo-wrap">
+            <div class="todo-header">
+              <input type="text" placeholder="请输入你的任务名称，按回车键确认" />
+            </div>
+            <ul class="todo-main">
+           <!--    <li>
+                <label>
+                  <input type="checkbox"  />
+                  <span>xxxxx</span>
+                </label>
+                <button class="btn btn-danger">删除</button>
+              </li> -->
+            </ul>
+            <div class="todo-footer">
+              <label>
+                <input type="checkbox" />
+              </label>
+              <span>
+                <span>已完成 <i id="doneNum">0</i></span> / 全部
+                <i id="totalNum">2</i>
+              </span>
+              <button class="btn btn-danger">清除已完成任务</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        window.onload=function(){
+  /**
+          *实现增加功能
+          **/
+          //获取元素 按回车键时 根据数据渲染到页面中  
+          //创建数据
+          let data=[
+            {
+              id:1,
+              errandName:"做作业",
+              check:true,
+            }
+          ]; 
+         var oIput=document.querySelector(".todo-header input");
+        
+
+          //键盘事件 按下回车键时触发
+          insert();
+          function insert(){
+            oIput.onkeydown=function(e){
+              //判断是否是回车键 如果是将添加的元素 添加到对象中
+              if(e.keyCode===13){
+                 data[data.length]={
+                    id:data.length+1,
+                    errandName:oIput.value,
+                    check:false,
+                 };
+                 quanCheck();
+              }
+              show();
+             }
+          }
+         
+
+        //根据数据显示页面内容
+        show();
+         function show(){
+           //获取元素
+        let todoMain=document.querySelector(".todo-main");
+          //查询数据渲染到页面
+            //每次进来先把里面的清空
+            todoMain.innerHTML="";
+          //如果里面有数据就覆盖
+          data.forEach((item,index)=>{
+            if(item.check==false){
+              todoMain.innerHTML+=`
+              <li>
+               <label>
+                <input type="checkbox"  />
+                <span>${item.errandName}</span>
+               </label>
+               <button class="btn btn-danger">删除</button>
+              </li>
+             `;
+            }else{
+              todoMain.innerHTML+=`
+            <li>
+              <label>
+                <input type="checkbox" checked  />
+                <span class="done">${item.errandName}</span>
+              </label>
+              <button class="btn btn-danger">删除</button>
+            </li>
+           `;
+            }
+          
+          });
+          chekced();
+          quanCheck();
+          showData();
+         }
+
+         //选中时候的状态  如果被选中span添加class done
+         chekced();
+         //获取元素
+         function chekced(){
+          let todoMain=document.querySelector(".todo-main");
+          let oLiCheck=document.querySelectorAll(".todo-main input");
+          
+          todoMain.onclick=function(e){
+            //pan 并且  input被选中时
+            oLiCheck.forEach((item,index)=>{
+              let _index=index;
+              item.onchange=function(){
+                 if(e.target.checked){
+                  e.target.nextElementSibling.classList.add("done");
+                  data[_index].check=true;
+                }else{
+                  e.target.nextElementSibling.classList.remove("done");
+                  data[_index].check=false;
+                }
+                quanCheck();
+             }
+            });
+            //删除单行
+         /*   let oLi=document.querySelectorAll(".todo-main li"); 
+             if(e.target.nodeName.toLowerCase()==="button"){
+              //删除页面上的样式
+               e.target.parentElement.remove();
+               //删除数据
+              console.log(e);
+            }  */
+            quanCheck();
+            showData();
+          }
+          
+         //实现删除  单行删除btn btn-danger和选中多行删除 btn btn-danger   
+         //删除实际上就是删除下标元素 然后重新渲染页面  
+         //单行删除可以使用定位当前元素删除它的父元素
+          let oLiBtn=todoMain.getElementsByTagName("button");
+          console.log(oLiBtn);
+           for(let i=0;i<oLiBtn.length;i++){
+             console.log(oLiBtn[i]);
+            oLiBtn[i].onclick=function(){
+              if(oLiBtn[i]){
+                data.splice(i,1);
+                oLiBtn[i].parentElement.remove();
+              }else{
+                data.splice(i-i,1);
+                oLiBtn[i-i].parentElement.remove();
+              }
+              quanCheck();
+              }
+           }
+         }
+
+         //判断全选
+         quanCheck();
+         function quanCheck(){
+           //如果input的数量和 选中的数量相等的时候则全选被选中
+           //获取元素
+          let todoMain=document.querySelector(".todo-main");
+          let oTodoFooterInt=document.querySelector(".todo-footer input");
+           let oTodoMain=todoMain.getElementsByTagName("input");
+           /* console.log(oTodoMain[0].checked==false,data); */
+           let new2Data=data.filter(function(item,index){
+              return item.check==true;
+           });
+            console.log(new2Data,oTodoMain.length,new2Data.length); 
+            console.log(oTodoFooterInt); 
+            if(oTodoMain.length===new2Data.length){
+                 oTodoFooterInt.checked=true;
+         
+            }else{
+                 oTodoFooterInt.checked=false;
+            }
+         }
+
+         //全选操作
+         footerChecked();
+        function footerChecked(){
+          let oTodoFooterInt=document.querySelector(".todo-footer input");
+          let oTodoMain=document.querySelectorAll(".todo-main input");
+          //当点击全选时 
+          oTodoFooterInt.onchange=function(e){
+              if(e.target.checked){
+                data.forEach((item)=>{
+                  item.check=true;
+                });
+              }else{
+                data.forEach((item)=>{
+                  item.check=false;
+                });
+              }
+              show();
+          }
+         }
+
+         //删除选中的
+         delChecked();
+         function delChecked(){
+          let oTodoFooterBtn=document.querySelector(".todo-footer button");
+          oTodoFooterBtn.onclick=function(){
+            let inp=document.querySelectorAll(".todo-main input");
+            //获取所有拥有checked的input
+           let newData=data.filter((item,index)=>{
+             /* if(item.check===true){
+                data.splice(index,1);
+             } */
+             return item.check!==true;
+           });
+            console.log(newData);
+            data=newData;
+            console.log(data);
+            //删除所有选中的样式
+            show();
+          
+          }
+         }
+
+         //获取数据计算显示到页面
+         showData();
+         function showData(){
+           //获取元素
+         let oSpan=  document.querySelector(".todo-footer span>span");
+         let oI=  document.querySelector(".todo-footer span>i");
+         let oTodoMain=document.querySelectorAll(".todo-main input");
+         let oTodoMainChecked=document.querySelectorAll(".todo-main input:checked");
+         oSpan.textContent="已选中"+oTodoMainChecked.length;
+         oI.textContent=oTodoMain.length;
+       
+         }
+        }
+        
+       
+         
+      </script>
+</body>
+</html>

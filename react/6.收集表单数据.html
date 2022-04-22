@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      class MyFrom extends React.Component {
+        //初始化state
+        state = {
+          password: "",
+        };
+        getPassword = (event) => {
+          //更新state
+          this.setState({
+            //使用受控组件更新state
+            password: event.target.value,
+          });
+          console.log(this.refs.getUserName.value, this.state.password);
+          //非受控组件 使用ref 获取数据，只是在特定的时候需要
+          console.log(this.state.password);
+        };
+        render() {
+          let { password } = this.state;
+          return (
+            <div>
+              用户名: <input type="text" ref="getUserName" />
+              密码:{" "}
+              <input
+                type="password"
+                value={password}
+                onChange={this.getPassword}
+              />
+              <button type="submit">提交</button>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<MyFrom />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

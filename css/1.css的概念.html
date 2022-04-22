@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <dl>
+      <dt><h2>什么是css?</h2></dt>
+      <dd>
+        <p>
+          css是层叠样式表,主要负责网页的表现部分，用于将结构和样式进行分离，方便复用，css的特点是:1）可继承
+          2）层叠性(可覆盖)
+        </p>
+      </dd>
+    </dl>
+    <dl>
+      <dt><h2>DIV+css布局</h2></dt>
+      <dd><p>DIV+css是早期最传统的布局方式,现在最流行的是使用flex布局</p></dd>
+    </dl>
+    <dl>
+      <dt><h2>浏览器渲染流程</h2></dt>
+      <dd>
+        <p>
+          客户端会向服务器发送一个请求信息，服务器接收到请求后，根据请求返回html,css，js等信息，开始解析目标html文件，解析顺序是从上而下
+          1）浏览器首先会渲染解析hmtl节点从而根据节点生成DOM树,2）然后浏览器会解析css代码从而生成cssom树,3）将dom树和css树进行合并生成render
+          tree 4)计算节点信息,布局节点 5)将布局后的渲染树显示到页面上
+        </p>
+      </dd>
+    </dl>
+    <dl>
+      <dt><h2>CSS阻塞渲染</h2></dt>
+      <dd>
+        <p>
+          根据浏览器的渲染流程，如果cssom还没构建完成时，已经处理好的html是不会渲染到页面中，所以有时会出现白屏现象，此时css被视为阻塞渲染的资源，此时浏览器不会渲染任何已经处理的内容，直到cssom构建完毕
+        </p>
+      </dd>
+    </dl>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script type="text/babel">
+      //原生js创建组件
+      function MyContainer2(props) {
+        console.log(props);
+        return <h1>你好,{props.name}</h1>;
+      }
+
+      class MyContainer3 extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+        render() {
+          const { name } = this.props;
+          console.log(this.props);
+          return <h3>奥特曼{name}</h3>;
+        }
+      }
+
+      //组件中的三大属性
+      /*  ref 获取真实dom节点，便于操作dom
+          state 状态机，通过改变组件中的状态来更新对应页面
+          props  父子组件间用来传参 */
+      class MyContainer extends React.Component {
+        constructor(props) {
+          super(props);
+          //初始化state
+          this.state = {
+            name: "小",
+            age: "one",
+            sex: "man",
+          };
+        }
+        //react绑定事件使用
+        click = () => {
+          //读取state
+          /* console.log( this.state.name); */
+          this.setState({
+            name: "我喜欢你",
+          });
+        };
+        deleteTab = () => {
+          //获取要删除标签的dom
+          console.log(this.refs);
+          //操作移除
+          this.refs.h1.remove();
+        };
+
+        render() {
+          const { name, age, sex } = this.state;
+          return (
+            <div>
+              <button ref="inp" onClick={this.deleteTab}>
+                删除标签
+              </button>
+              <h1 ref="h1" className="ddd" onClick={this.click}>
+                {name},{age},{sex}
+              </h1>
+              <MyContainer2 id="d" name={name} />
+              <MyContainer3 name={name} />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<MyContainer />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

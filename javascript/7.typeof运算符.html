@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      /*   数据类型判断的几种方法
+        -typeof of 进行判断 
+           -instanceof
+           - === 
+           -Obejct.toString().call(obj).toLowerCase().slice(8,-1)
+    */
+      var str = "0.03sss";
+      console.log(Number(str)); //NaN
+      console.log(parseInt(str)); //0
+      console.log(parseFloat(str)); //0.03
+    </script>
+  </body>
+</html>

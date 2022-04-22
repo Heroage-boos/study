@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root"></div>
+    <script>
+      /*  求出1-100之间所有的质数
+            质数：只能被1和它自身整除的数，1不是质数也不是合数，质数必须是大于1的自然数。 */
+
+      var arr = [];
+      //排除2因为质数不能小于等于1
+      for (var a = 2; a <= 100; a++) {
+        //把a存放进一个数组里面
+        arr.push(a);
+        for (var j = 2; j < a; j++) {
+          if (a % j == 0) {
+            arr.pop();
+            break;
+          }
+        }
+      }
+      console.log(arr);
+    </script>
+  </body>
+</html>
